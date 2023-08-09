@@ -7,8 +7,6 @@ const CSearchBar = () => {
 
   const handleSearch: onSearchFunc = (searchEventData) => {
     const { query } = searchEventData;
-
-    console.log(query);
     location.href = "https://answers_outreach.yextpages.net?query=" + query;
   };
 

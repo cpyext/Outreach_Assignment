@@ -2,25 +2,19 @@
  * This is an example of how to create a static template that uses getStaticProps to retrieve data.
  */
 import * as React from "react";
-import { fetch } from "@yext/pages/util";
 import "../index.css";
 import {
   Template,
   GetPath,
   GetHeadConfig,
   HeadConfig,
-  TransformProps,
   TemplateConfig,
   TemplateProps,
   TemplateRenderProps,
 } from "@yext/pages";
-import Card from "../components/Card";
-import Banner from "../components/banner";
 import PageLayout from "../components/page-layout";
 import { ExternalImage } from "../types/ExternalImage";
 import { Image } from "@yext/pages/components";
-import { SearchBar } from "@yext/search-ui-react";
-import { SearchAction } from "schema-dts";
 import CSearchBar from "../components/CSearchBar";
 
 /**
@@ -48,15 +42,6 @@ type ExternalImageData = TemplateProps & { externalImage: ExternalImage };
  *
  * If the page is truly static this function is not necessary.
  */
-export const transformProps: TransformProps<ExternalImageData> = async (
-  data
-) => {
-  const url = import.meta.env.YEXT_PUBLIC_EXTERNAL_IMAGE_API_BASE_URL + "/2";
-  const externalImage = (await fetch(url).then((res: any) =>
-    res.json()
-  )) as ExternalImage;
-  return { ...data, externalImage };
-};
 
 /**
  * Defines the path that the generated file will live at for production.
@@ -66,10 +51,6 @@ export const transformProps: TransformProps<ExternalImageData> = async (
  */
 export const getPath: GetPath<ExternalImageData> = () => {
   return `index.html`;
-};
-
-type ExternalImageRenderData = TemplateRenderProps & {
-  externalImage: ExternalImage;
 };
 
 /**
