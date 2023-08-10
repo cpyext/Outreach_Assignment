@@ -92,8 +92,14 @@ export const getHeadConfig: GetHeadConfig<
  */
 const Static: Template<TemplateRenderProps> = ({ document }) => {
   const { _site } = document;
-  const { description, c_resources, primaryPhoto } = _site;
-
+  const {
+    description,
+    c_resources,
+    primaryPhoto,
+    c_header_anon,
+    c_footerImage,
+  } = _site;
+  // console.log("values", c_header_anon, c_footerImage, primaryPhoto);
   return (
     <>
       <PageLayout _site={_site}>

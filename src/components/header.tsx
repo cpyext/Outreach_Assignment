@@ -1,5 +1,6 @@
 import * as React from "react";
 import Cta from "../components/cta";
+import { Image } from "@yext/pages/components";
 
 type Link = {
   label: string;
@@ -18,7 +19,7 @@ const links: Link[] = [
 ];
 
 const Header = ({ _site }: any) => {
-  const { c_header } = _site;
+  const { c_header, c_header_anon } = _site;
 
   const linkDoms = links.map((link) => (
     <div key={link.label}>
@@ -27,10 +28,15 @@ const Header = ({ _site }: any) => {
       </a>
     </div>
   ));
-
+  // console.log("values", c_header_anon);
   return (
     <>
-      <div className="centered-container">
+      <div className="">
+        <a href="">
+          <Image image={c_header_anon}></Image>
+        </a>
+      </div>
+      {/* <div className="centered-container">
         <nav className="py-6 flex items-center justify-between">
           <img
             src="https://cdn.fs.brandfolder.com/cache=expiry:604800/deY3VGFpSjC761Abjbfc"
@@ -48,7 +54,7 @@ const Header = ({ _site }: any) => {
             ></Cta>
           </div>
         </nav>
-      </div>
+      </div> */}
     </>
   );
 };
