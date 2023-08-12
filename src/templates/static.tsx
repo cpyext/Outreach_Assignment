@@ -15,8 +15,8 @@ import {
 import PageLayout from "../components/page-layout";
 import { ExternalImage } from "../types/ExternalImage";
 import { Image } from "@yext/pages/components";
-import CSearchBar from "../components/CSearchBar";
-
+import CustomHeader from "../components/CustomHeader";
+import { PiArrowLineUpRightLight } from "react-icons/pi";
 /**
  * Not required depending on your use case.
  */
@@ -74,14 +74,6 @@ export const getHeadConfig: GetHeadConfig<
           content: "Static page example meta description.",
         },
       },
-      // {
-      //   type: "link",
-      //   attributes: {
-      //     rel: "icon",
-      //     type: "image/x-icon",
-      //     href: Favicon,
-      //   },
-      // },
     ],
   };
 };
@@ -98,20 +90,20 @@ const Static: Template<TemplateRenderProps> = ({ document }) => {
     <>
       <PageLayout _site={_site}>
         <div className="bg-[#5950FF]">
-          <div className="centered-container flex flex-col p-44 text-center gap-12">
-            <div className="text-8xl text-white font-bold">{description}</div>
-            <div className="w-3/4 mx-auto">
-              <CSearchBar />
-            </div>
-          </div>
+          <CustomHeader description={description}></CustomHeader>
         </div>
         <div className="centered-container grid grid-cols-3 justify-between p-44 gap-4">
           {c_resources.map((item: any, index: any) => (
             <div
               key={index}
-              className="   p-16 font-bold text-4xl border-[#5950FF] border-4"
+              className="pb-6 font-bold text-3xl border-[#5950FF] border-4"
             >
-              {item.name}
+              <div className="w-fit ml-auto pr-4 pt-4 text-6xl font-semibold text-[#5950FF]">
+                <a href={item.link}>
+                  <PiArrowLineUpRightLight />
+                </a>
+              </div>
+              <div className="px-16">{item.name}</div>
             </div>
           ))}
         </div>

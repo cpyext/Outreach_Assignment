@@ -10,7 +10,13 @@
     "c_footer",
     "description",
     "c_resources",
-    "primaryPhoto"
+    "primaryPhoto",
+    "c_footerImage",
+    "c_header_anon",
+    "c_signIn",
+    "c_supportInfo",
+    "c_logoshort",
+    "c_logofull"
   ],
   "localization": {
     "locales": ["en"],
