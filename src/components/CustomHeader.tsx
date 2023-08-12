@@ -6,7 +6,15 @@ type custHederProps = {
 };
 const CustomHeader = ({ description }: custHederProps) => {
   const { isHelp } = useMyContext();
-
+  const [textareaContent, setTextareaContent] = React.useState<string>("");
+  const handleGoClick = () => {
+    if (textareaContent) {
+      const url = `https://answers_outreach.yextpages.net?query=${encodeURIComponent(
+        textareaContent
+      )}`;
+      window.location.href = url;
+    }
+  };
   return (
     <>
       {!isHelp ? (
@@ -30,9 +38,13 @@ const CustomHeader = ({ description }: custHederProps) => {
                 className="w-full p-2 border rounded"
                 rows="10"
                 placeholder="Enter your text here..."
+                onChange={(e) => setTextareaContent(e.target.value)}
               />
             </div>
-            <div className="px-3 py-1 border-white rounded-md w-fit bg-black text-white ml-auto">
+            <div
+              className="px-3 py-1 border-white rounded-md w-fit bg-black text-white ml-auto hover:cursor-pointer"
+              onClick={() => handleGoClick()}
+            >
               Go
             </div>
           </div>

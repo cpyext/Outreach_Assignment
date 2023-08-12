@@ -1,49 +1,63 @@
 import * as React from "react";
 import { Image } from "@yext/pages/components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMyContext } from "../context/context";
 import { FaRegUserCircle } from "react-icons/fa";
 import { BsEnvelope } from "react-icons/bs";
 import { PiDotsThreeOutlineVerticalLight } from "react-icons/pi";
+import { SearchBar } from "@yext/search-ui-react";
 type Link = {
   label: string;
   url: string;
 };
 
-const links: Link[] = [
-  {
-    label: "Home",
-    url: "/",
-  },
-  {
-    label: "About",
-    url: "/turtlehead-tacos",
-  },
-];
-
-const Header = ({ _site, setIsGetHelp }: any) => {
+const Header = ({ _site }: any) => {
   const { c_logofull } = _site;
   const [loggedIn, setLoggedIn] = useState(false);
+  const [showSearchBar, setShowSearchBar] = useState(true);
+
   const { setIsHelp } = useMyContext();
-  const linkDoms = links.map((link) => (
-    <div key={link.label}>
-      <a href={link.url} target="_blank" rel="noreferrer">
-        {link.label}
-      </a>
-    </div>
-  ));
+
+  const handleScroll = () => {
+    if (window.scrollY > 500) {
+      setShowSearchBar(false);
+    } else {
+      setShowSearchBar(true);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <div className="bg-black">
+    <div className=" fixed  bg-black w-full z-10">
       <div className="max-w-screen-2xl px-8">
-        <nav className="py-6 flex items-center justify-between ">
+        <nav className="py-6 flex items-center justify-between">
           <div className="flex gap-4 items-center">
             <div>
               <Image image={c_logofull}></Image>
             </div>
-            <div className="  text-white">Customer Portal</div>
+            <div className="text-white">Customer Portal</div>
           </div>
-          <div className="flex gap-x-10 text-lg font-semibold">{linkDoms}</div>
+          <div
+            className={`!mb-0 flex-1 mx-4`}
+            style={{
+              opacity: showSearchBar ? 0 : 1,
+              maxHeight: showSearchBar ? "0" : "100px",
+              overflow: showSearchBar ? "hidden" : "visible",
+              transition:
+                "opacity 0.3s ease-in-out, max-height 0.3s ease-in-out",
+            }}
+          >
+            <SearchBar
+              customCssClasses={{
+                searchBarContainer: "!mb-0 flex-1 mx-4",
+              }}
+            ></SearchBar>
+          </div>
           <div className="gap-x-8 text-white flex items-center">
             <div className="flex gap-2 items-center">
               <div>Platform Status</div>
@@ -56,7 +70,7 @@ const Header = ({ _site, setIsGetHelp }: any) => {
             {!loggedIn ? (
               <div className="border border-white px-8 py-2 flex gap-2 rounded-md hover:cursor-pointer">
                 <div onClick={() => setLoggedIn(!loggedIn)}>Sign in</div>
-                <div className="text-[#white]">
+                <div className="text-white">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -73,7 +87,7 @@ const Header = ({ _site, setIsGetHelp }: any) => {
               </div>
             ) : (
               <>
-                <div className="  px-8 py-2 flex gap-2 rounded-md bg-[#5950ff]">
+                <div className="px-8 py-2 flex gap-2 rounded-md bg-[#5950ff]">
                   <div
                     className="text-white hover:cursor-pointer"
                     onClick={() => setIsHelp(true)}
