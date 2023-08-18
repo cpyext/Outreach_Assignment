@@ -1,5 +1,7 @@
 import * as React from "react";
 import CSearchBar from "./CSearchBar";
+import MyChat from "./chat";
+
 import { useMyContext } from "../context/context";
 type custHederProps = {
   description: string;
@@ -33,20 +35,21 @@ const CustomHeader = ({ description }: custHederProps) => {
               Let’s find a solution! To make sure we connect you to the best
               resource, please describe what you need help with.
             </div>
-            <div className="mt-12">
+            <MyChat />
+            {/* <div className="mt-12">
               <textarea
                 className="w-full p-2 border rounded"
                 rows="10"
                 placeholder="Enter your text here..."
                 onChange={(e) => setTextareaContent(e.target.value)}
               />
-            </div>
-            <div
+            </div> */}
+            {/* <div
               className="px-3 py-1 border-white rounded-md w-fit bg-black text-white ml-auto hover:cursor-pointer"
               onClick={() => handleGoClick()}
             >
               Go
-            </div>
+            </div> */}
           </div>
         </div>
       )}
