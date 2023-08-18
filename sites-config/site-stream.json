@@ -15,7 +15,8 @@
     "c_header_anon",
     "c_signIn",
     "c_supportInfo",
-    "c_logoshort"
+    "c_logoshort",
+    "c_logofull"
   ],
   "localization": {
     "locales": ["en"],

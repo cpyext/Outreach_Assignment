@@ -2,9 +2,7 @@ import * as React from "react";
 import { Image } from "@yext/pages/components";
 
 const Footer = ({ _site }: any) => {
-  const { c_footer, c_footerImage, c_signIn, c_supportInfo, c_logoshort } =
-    _site;
-  console.log(c_footer);
+  const { c_footer, c_signIn, c_supportInfo, c_logoshort } = _site;
 
   return (
     <>
@@ -17,9 +15,6 @@ const Footer = ({ _site }: any) => {
           height: "400px",
         }}
       >
-        {/* <div className="text-base text-slate-100"> {c_footer.name}</div>
-        <div className="text-base text-slate-100">{c_supportInfo.name}</div>
-        <div className="text-base text-slate-100"> {c_signIn.name}</div> */}
         <div
           style={{ display: "flex", flexDirection: "column" }}
           className="text-slate-100 text-xs leading-10 mt-16"
