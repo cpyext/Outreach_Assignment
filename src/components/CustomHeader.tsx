@@ -30,12 +30,18 @@ const CustomHeader = ({ description }: custHederProps) => {
         </div>
       ) : (
         <div className="centered-container flex flex-col p-44  gap-12 py-44">
-          <div className="px-36 gap-y-6">
-            <div className="text-6xl text-white font-bold">
+          <div className="px-36 gap-y-6 flex">
+            <div className="text-6xl text-white font-bold w-1/2">
               Let’s find a solution! To make sure we connect you to the best
               resource, please describe what you need help with.
             </div>
-            <MyChat />
+            <div
+              className="w-1/2 shadow-2xl"
+              style={{ boxShadow: "0 5px 38px 10px #eaeaeab3" }}
+            >
+              <MyChat />
+            </div>
+
             {/* <div className="mt-12">
               <textarea
                 className="w-full p-2 border rounded"
