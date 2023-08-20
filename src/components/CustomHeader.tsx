@@ -31,7 +31,7 @@ const CustomHeader = ({ description }: custHederProps) => {
       ) : (
         <div className="centered-container flex flex-col p-44  gap-12 py-44">
           <div className="px-36 gap-y-6 flex">
-            <div className="text-6xl text-white font-bold w-1/2">
+            <div className="text-6xl text-white w-1/2 mr-4">
               Let’s find a solution! To make sure we connect you to the best
               resource, please describe what you need help with.
             </div>

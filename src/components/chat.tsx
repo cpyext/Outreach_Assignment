@@ -18,9 +18,13 @@ const MyChat = () => {
     container: "bg-[#5950FF] text-white",
     inputContainer: "text-black",
     messagesContainer: "flex flex-col gap-y-1 px-4 pb-[85px] overflow-auto",
-
-    // messagesContainer: "custom-messages-container",
-    // Add other custom classes...
+    messageBubbleCssClasses: {
+      feedbackButtonsCssClasses: {
+        container: "hidden",
+      },
+      // messagesContainer: "custom-messages-container",
+      // Add other custom classes...
+    },
   };
   const headerstyle = {
     background: "#343333",
@@ -35,7 +39,7 @@ const MyChat = () => {
         style={headerstyle}
       >
         <h1 className="text-white text-xl font-medium truncate pr-1 yext-chat-header__title">
-          Yext Chat
+          Outreach Support Assistant
         </h1>
       </div>
     ),
