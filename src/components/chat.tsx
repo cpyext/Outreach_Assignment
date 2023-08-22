@@ -28,7 +28,7 @@ const MyChat = () => {
   };
   const headerstyle = {
     background: "#343333",
-    "border-bottom": "1px solid rgba(187,187,187,.4)",
+    borderBottom: "1px solid rgba(187,187,187,.4)",
   };
 
   // Define props to pass to ChatPanel
