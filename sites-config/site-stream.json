@@ -1,25 +1,27 @@
 {
   "$id": "site-entity",
   "filter": {
-    "entityIds": ["6443762455449803737"]
+    "entityIds": [
+      "2543149854357718046"
+    ]
   },
   "source": "knowledgeGraph",
   "fields": [
     "name",
-    "c_header",
+    "c_header1",
     "c_footer",
     "description",
-    "c_resources",
-    "primaryPhoto",
-    "c_footerImage",
-    "c_header_anon",
-    "c_signIn",
-    "c_supportInfo",
-    "c_logoshort",
-    "c_logofull"
+    "c_welcomeBanner",
+    "c_outreachTiles",
+    "c_outreachLogo",
+    "c_webinarLogo",
+    "c_outreachLogoWithCaption",
+    "slug"
   ],
   "localization": {
-    "locales": ["en"],
+    "locales": [
+      "en"
+    ],
     "primary": false
   }
 }

@@ -85,11 +85,16 @@ export const getHeadConfig: GetHeadConfig<
 const Static: Template<TemplateRenderProps> = ({ document }) => {
   const { _site } = document;
   const {
+    name,
+    c_header1,
+    c_footer,
     description,
-    c_resources,
-    primaryPhoto,
-    c_header_anon,
-    c_footerImage,
+    c_welcomeBanner,
+    c_outreachTiles,
+    c_outreachLogo,
+    c_webinarLogo,
+    c_outreachLogoWithCaption,
+    slug
   } = _site;
   // console.log("values", c_header_anon, c_footerImage, primaryPhoto);
   return (
@@ -99,19 +104,7 @@ const Static: Template<TemplateRenderProps> = ({ document }) => {
           <CustomHeader description={description}></CustomHeader>
         </div>
         <div className="centered-container grid grid-cols-3 justify-between p-44 gap-4">
-          {c_resources.map((item: any, index: any) => (
-            <div
-              key={index}
-              className="pb-6 font-bold text-3xl border-[#5950FF] border-4"
-            >
-              <div className="w-fit ml-auto pr-4 pt-4 text-6xl font-semibold text-[#5950FF]">
-                <a href={item.link}>
-                  <PiArrowLineUpRightLight />
-                </a>
-              </div>
-              <div className="px-16">{item.name}</div>
-            </div>
-          ))}
+
         </div>
         <div className="">
           <a href="">
