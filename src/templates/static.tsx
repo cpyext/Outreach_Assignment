@@ -107,9 +107,7 @@ const Static: Template<TemplateRenderProps> = ({ document }) => {
 
         </div>
         <div className="">
-          <a href="">
-            <Image image={primaryPhoto}></Image>
-          </a>
+
         </div>
       </PageLayout>
     </>
